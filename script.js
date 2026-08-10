@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const tweetText = encodeURIComponent(
                 "인어왕자 보신 분? 여기로 연락 달라던데\n" +
                 // "마지막 목격 장소도 참고 ㄱㄱ \n"
-                ">> @heisg0ne \n\n" +
+                ">> @heisg0ne님에게 제보 \n\n" +
                 ">>26.09.09 개봉 #아가미 #구병모"
             );
             const shareUrl = encodeURIComponent("https://bit.ly/4whSti2?v=1");

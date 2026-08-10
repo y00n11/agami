@@ -6,11 +6,18 @@ document.addEventListener('DOMContentLoaded', () => {
             this.classList.add('torn');
 
             setTimeout(() => {
-                // @ 기호를 %40으로 직접 지정하여 인코딩 누락 방지
-                const shareText = "인어왕자 보신 분? 여기로 연락달라네요 \n >> %40heisg0ne\n >>26.09.09 개봉 #아가미 #구병모";
-                const encodedText = encodeURIComponent(shareText).replace(/%2540/g, '%40');
+                // 줄바꿈과 @ 기호를 포함한 순수 문자열 배열
+                const lines = [
+                    '인어왕자 보신 분? 여기로 연락달라네요',
+                    ' >> @heisg0ne',
+                    ' >>26.09.09 개봉 #아가미 #구병모'
+                ];
                 
-                window.open(`https://x.com/intent/tweet?text=${encodedText}`, '_blank');
+                // 줄바꿈 문자(\n)로 합친 뒤 PC/모바일 호환 인코딩
+                const fullText = lines.join('\n');
+                const tweetUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(fullText)}`;
+                
+                window.open(tweetUrl, '_blank');
             }, 250);
         });
     });

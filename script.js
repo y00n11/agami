@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 뜯기 동작 바인딩
     const strips = document.querySelectorAll('.strip-item');
     strips.forEach(strip => {
-        strip.addEventListener('click', function() {
+        strip.addEventListener('click', function () {
             const action = this.getAttribute('data-action');
             this.classList.add('torn');
 
@@ -17,31 +17,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else if (action === 'voice') {
                     const audio = document.getElementById('voicePlayer');
                     if (audio) {
-                        audio.play().catch(() => alert('voice.mp3 파일 경로를 확인해주세요.'));
+                        audio.play().catch(() => alert('voice.mp4 파일 경로를 확인해주세요.'));
                     }
                 }
+            }
             }, 250);
-        });
     });
+});
 
-    // ------------------------------------
-    // 개발자 도구 및 코드 보기 방지 스크립트
-    // ------------------------------------
-    
-    // 키보드 단축키 차단 (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U 등)
-    document.addEventListener('keydown', (e) => {
-        if (
-            e.key === 'F12' ||
-            (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) ||
-            (e.ctrlKey && (e.key === 'U' || e.key === 'u'))
-        ) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-    });
+// ------------------------------------
+// 개발자 도구 및 코드 보기 방지 스크립트
+// ------------------------------------
 
-    // 마우스 우클릭 차단
-    document.addEventListener('contextmenu', (e) => {
+// 키보드 단축키 차단 (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U 등)
+document.addEventListener('keydown', (e) => {
+    if (
+        e.key === 'F12' ||
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) ||
+        (e.ctrlKey && (e.key === 'U' || e.key === 'u'))
+    ) {
         e.preventDefault();
-    });
+        e.stopPropagation();
+    }
+});
+
+// 마우스 우클릭 차단
+document.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+});
 });

@@ -7,9 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 const tweetText = encodeURIComponent(
                     "인어왕자 보신 분? 여기로 연락달라네요\n" +
-                    ">> @heisg0ne \n\n" +
+                    ">> @heisg0ne 님에게 제보\n\n" +
                     ">>26.09.09 개봉 #아가미 #구병모"
                 );
+                
+                // 원하시던 bit.ly 링크 그대로 유지
                 const shareUrl = encodeURIComponent("https://bit.ly/4whSti2");
 
                 window.open(`https://x.com/intent/tweet?text=${tweetText}&url=${shareUrl}`, '_blank');

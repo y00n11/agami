@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
             this.classList.add('torn');
 
             setTimeout(() => {
-                // 줄바꿈(\n)을 넣어서 하단 문구까지 포함
-                const text = encodeURIComponent('인어왕자 보신 분? 여기로 연락달라네요 @heisg0ne \n 26.09.09 개봉 #아가미 #구병모');
+                // @heisg0ne 포함 트윗 공유 문구
+                const text = encodeURIComponent('인어왕자 보신 분? 여기로 연락달라네요 \n >> @heisg0ne\n >>26.09.09 개봉 #아가미 #구병모');
                 window.open(`https://x.com/intent/tweet?text=${text}`, '_blank');
             }, 250);
         });

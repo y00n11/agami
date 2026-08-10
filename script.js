@@ -6,15 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
             this.classList.add('torn');
 
             setTimeout(() => {
-                // 본문 텍스트 (줄바꿈 포함)
-                const tweetText = encodeURIComponent("인어왕자 보신 분? 여기로 연락달라네요 \n >>26.09.09 개봉 #아가미 #구병모");
-                // 아이디는 via 파라미터로 따로 전달 (@ 제외하고 아이디만 입력)
-                const viaAccount = "heisg0ne";
-
-                // PC/모바일 모두 완벽 호환되는 X Intent URL
-                const tweetUrl = `https://x.com/intent/tweet?text=${tweetText}&via=${viaAccount}`;
+                // @heisg0ne 및 홍보 링크(https://bit.ly/4whSti2) 포함 트윗 문구
+                const shareText = "인어왕자 보신 분? 여기로 연락달라네요\n>> @heisg0ne 님에게 제보\nhttps://bit.ly/4whSti2\n\n>>26.09.09 개봉 #아가미 #구병모";
+                const encodedText = encodeURIComponent(shareText);
                 
-                window.open(tweetUrl, '_blank');
+                window.open(`https://x.com/intent/tweet?text=${encodedText}`, '_blank');
             }, 250);
         });
     });

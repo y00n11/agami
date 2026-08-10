@@ -2,20 +2,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const strips = document.querySelectorAll('.strip-item');
     strips.forEach(strip => {
         strip.addEventListener('click', function() {
-            // 번호표 뜯어지는 애니메이션 실행
             this.classList.add('torn');
 
             setTimeout(() => {
-                // text 하나에 본문, 아이디, 단축URL, 해시태그를 줄바꿈(\n)으로 구분하여 일괄 전달
-                const fullContent = 
+                const tweetText = encodeURIComponent(
                     "인어왕자 보신 분? 여기로 연락달라네요\n" +
                     ">> @heisg0ne \n\n" +
-                    "https://bit.ly/4whSti2\n\n" +
-                    ">>26.09.09 개봉 #아가미 #구병모";
-                
-                const tweetUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(fullContent)}`;
-                
-                window.open(tweetUrl, '_blank');
+                    ">>26.09.09 개봉 #아가미 #구병모"
+                );
+                const shareUrl = encodeURIComponent("https://bit.ly/4whSti2");
+
+                window.open(`https://x.com/intent/tweet?text=${tweetText}&url=${shareUrl}`, '_blank');
             }, 250);
         });
     });

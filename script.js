@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     ">>26.09.09 개봉 #아가미 #구병모"
                 );
                 
-                // 원하시던 bit.ly 링크 그대로 유지
-                const shareUrl = encodeURIComponent("https://bit.ly/4whSti2");
+                // 주소 끝에 ?v=1 을 붙여 트위터 크롤러 캐시를 강제로 무효화합니다.
+                const shareUrl = encodeURIComponent("https://bit.ly/4whSti2?v=1");
 
                 window.open(`https://x.com/intent/tweet?text=${tweetText}&url=${shareUrl}`, '_blank');
             }, 250);

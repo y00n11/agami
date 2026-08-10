@@ -29,8 +29,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    min-height: 100vh;
-    padding: 25px 10px;
+    min-height: 100dvh;
+    /* 모바일 주소창 가변 대응 */
+    padding: 15px 8px;
 
     /* 전체 문서 기본 폰트 적용 */
     font-family: "Noto Serif KR", serif;
@@ -38,12 +39,11 @@ body {
     color: var(--text-main);
 }
 
-/* 이하 기존 style.css 코드 그대로 유지 */
-
 /* 전단지 본체 (업로드한 구겨진 종이 paper.jpg 적용) */
 .flyer-container {
     width: 100%;
     max-width: 430px;
+    /* PC/태블릿 상한선 */
 
     background-image: url('paper.png');
     background-size: cover;
@@ -51,14 +51,14 @@ body {
     background-repeat: no-repeat;
     background-color: #f0f0f0;
 
-    padding: 28px 20px 0 20px;
+    padding: 6vw 4.5vw 0 4.5vw;
+    /* 화면 폭 맞춤 반응형 패딩 */
     position: relative;
     border: 1px solid rgba(0, 0, 0, 0.18);
     box-shadow:
         0 18px 40px rgba(0, 0, 0, 0.35),
         inset 0 0 20px rgba(0, 0, 0, 0.05);
 }
-
 
 .tape-left {
     top: -10px;
@@ -72,40 +72,46 @@ body {
     transform: rotate(32deg);
 }
 
+/* 제목 텍스트 반응형 가변 적용 */
 .title {
     text-align: center;
-    font-size: 1.95rem;
+    font-size: clamp(1.5rem, 6.5vw, 1.95rem);
     font-weight: 900;
     letter-spacing: -1px;
     margin-bottom: 8px;
+    word-break: keep-all;
 }
 
 .subtitle-bar {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 3.8vw, 1.1rem);
     font-weight: 800;
     margin-bottom: 12px;
 }
 
 .subtitle-bar .red {
     color: var(--text-main);
-    font-size: 1.3rem;
+    font-size: clamp(1.05rem, 4.3vw, 1.3rem);
     font-weight: 900;
 }
 
+/* 스케치 + 설명 레이아웃 반응형 */
 .content-grid {
     display: grid;
-    grid-template-columns: 130px 1fr;
-    gap: 12px;
+    grid-template-columns: 35% 1fr;
+    /* 고정 px 대신 비율% 적용 */
+    gap: 3vw;
     margin-bottom: 15px;
 }
 
 /* 초상화 스케치 박스 */
 .sketch-box {
     border: 1.5px solid #000;
-    height: 180px;
+    aspect-ratio: 130 / 180;
+    /* 세로 비율 자동 유지 */
+    height: auto;
     background: #fff;
     overflow: hidden;
 }
@@ -117,7 +123,7 @@ body {
 }
 
 .description {
-    font-size: 0.85rem;
+    font-size: clamp(0.75rem, 3.2vw, 0.85rem);
     line-height: 1.42;
     font-weight: 700;
     word-break: keep-all;
@@ -142,7 +148,7 @@ body {
 }
 
 .voice-card p {
-    font-size: 0.8rem;
+    font-size: clamp(0.7rem, 3vw, 0.8rem);
     font-weight: bold;
     margin-bottom: 4px;
 }
@@ -155,19 +161,19 @@ body {
 /* 연락처 박스 */
 .contact-box {
     text-align: center;
-    font-size: 1.15rem;
+    font-size: clamp(0.95rem, 4vw, 1.15rem);
     font-weight: 900;
     margin-bottom: 12px;
 }
 
 .contact-box .label {
-    font-size: 0.95rem;
+    font-size: clamp(0.8rem, 3.3vw, 0.95rem);
     display: inline-block;
     margin-right: 4px;
 }
 
 .contact-box .number {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
     display: inline-block;
     letter-spacing: 1px;
 }
@@ -175,12 +181,14 @@ body {
 /* 상세 인상착의 및 약도 지도 레이아웃 */
 .details-grid {
     display: grid;
-    grid-template-columns: 1fr 165px;
-    gap: 8px;
-    font-size: 0.76rem;
+    grid-template-columns: 1fr 42%;
+    /* 고정 px 대신 비율% 적용 */
+    gap: 2vw;
+    font-size: clamp(0.68rem, 2.8vw, 0.76rem);
     font-weight: 800;
     line-height: 1.45;
     margin-bottom: 14px;
+    word-break: keep-all;
 }
 
 .details-list .highlight {
@@ -190,7 +198,9 @@ body {
 
 .map-box {
     border: 1.5px solid #000;
-    height: 105px;
+    aspect-ratio: 165 / 105;
+    /* 약도 비율 자동 유지 */
+    height: auto;
     background: #fff;
     overflow: hidden;
 }
@@ -202,25 +212,27 @@ body {
 }
 
 .disclaimer {
-    font-size: 0.65rem;
+    font-size: clamp(0.6rem, 2.5vw, 0.65rem);
     color: #222;
     text-align: center;
     font-weight: 700;
     margin-bottom: 18px;
     line-height: 1.35;
+    word-break: keep-all;
 }
 
 /* 하단 뜯어보기 영역 */
 .tear-off-section {
     position: relative;
-    margin: 0 -20px;
+    margin: 0 -4.5vw;
+    /* 상단 padding에 맞추어 유동적 확장 */
     border-top: 2px dashed #555;
     background: rgba(0, 0, 0, 0.03);
 }
 
 .tear-off-instruction {
     text-align: center;
-    font-size: 0.68rem;
+    font-size: clamp(0.6rem, 2.5vw, 0.68rem);
     color: #444;
     padding: 3px 0;
     font-weight: bold;
@@ -239,7 +251,7 @@ body {
     text-align: center;
     writing-mode: vertical-rl;
     text-orientation: mixed;
-    font-size: 0.7rem;
+    font-size: clamp(0.6rem, 2.6vw, 0.7rem);
     font-weight: 800;
     color: #222;
     background-image: url('paper.jpg');

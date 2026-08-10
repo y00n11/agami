@@ -6,11 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
             this.classList.add('torn');
 
             setTimeout(() => {
-                // @heisg0ne 및 홍보 링크(https://bit.ly/4whSti2) 포함 트윗 문구
-                const shareText = "인어왕자 보신 분? 여기로 연락달라네요\n>> @heisg0ne 님에게 제보\nhttps://bit.ly/4whSti2\n\n>>26.09.09 개봉 #아가미 #구병모";
-                const encodedText = encodeURIComponent(shareText);
+                // 1. 본문 텍스트 (링크 제외, @heisg0ne 및 개봉일/해시태그 포함)
+                const tweetText = encodeURIComponent("인어왕자 보신 분? 여기로 연락달라네요\n>> @heisg0ne 님에게 제보\n\n>>26.09.09 개봉 #아가미 #구병모");
                 
-                window.open(`https://x.com/intent/tweet?text=${encodedText}`, '_blank');
+                // 2. 첨부할 홍보 웹사이트 링크
+                const shareUrl = encodeURIComponent("https://bit.ly/4whSti2");
+
+                // 3. text와 url을 파라미터로 명확히 분리하여 호출
+                window.open(`https://x.com/intent/tweet?text=${tweetText}&url=${shareUrl}`, '_blank');
             }, 250);
         });
     });

@@ -1,20 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
     const strips = document.querySelectorAll('.strip-item');
     strips.forEach(strip => {
-        strip.addEventListener('click', function() {
+        strip.addEventListener('click', async function() {
+            // 번호표 뜯어지는 애니메이션 실행
             this.classList.add('torn');
 
-            setTimeout(() => {
-                const tweetText = encodeURIComponent(
-                    "인어왕자 보신 분? 여기로 연락달라네요\n" +
-                    ">> @heisg0ne \n\n" +
-                    ">>26.09.09 개봉 #아가미 #구병모"
-                );
-                
-                // 주소 끝에 ?v=1 을 붙여 트위터 크롤러 캐시를 강제로 무효화합니다.
-                const shareUrl = encodeURIComponent("https://bit.ly/4whSti2?v=1");
+            const shareData = {
+                title: '중요한 사람을 찾습니다 - 《아가미》',
+                text: "인어왕자 보신 분? 여기로 연락달라네요\n>> @heisg0ne \n\n>>26.09.09 개봉 #아가미 #구병모",
+                url: 'https://bit.ly/4whSti2?v=1'
+            };
 
-                window.open(`https://x.com/intent/tweet?text=${tweetText}&url=${shareUrl}`, '_blank');
+            setTimeout(async () => {
+                // 1. 모바일 브라우저 표준 공유 기능 지원 여부 확인 (카톡, 문자 등 열림)
+                if (navigator.share) {
+                    try {
+                        await navigator.share(shareData);
+                    } catch (err) {
+                        // 사용자가 공유 창을 그냥 닫았을 때 예외 처리
+                        console.log('공유 취소:', err);
+                    }
+                } else {
+                    // 2. Web Share API를 지원하지 않는 PC/구형 브라우저인 경우 트위터로 우회
+                    const tweetText = encodeURIComponent(shareData.text);
+                    const shareUrl = encodeURIComponent(shareData.url);
+                    window.open(`https://x.com/intent/tweet?text=${tweetText}&url=${shareUrl}`, '_blank');
+                }
             }, 250);
         });
     });

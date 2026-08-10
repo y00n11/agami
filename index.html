@@ -21,7 +21,11 @@
     <meta name="twitter:image" content="https://y00n11.github.io/agami/ogimage.jpg">
 
     <link rel="stylesheet" href="style.css">
-</head>
+
+    <!-- 모바일 브라우저가 예전 HTML을 저장하지 못하도록 설정 -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 </head>
 
 <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
@@ -50,7 +54,8 @@
 
         <div class="voice-card">
             <p>???</p>
-            <audio id="voicePlayer" controls controlsList="nodownload" oncontextmenu="return false;" src="agami.mp4" type="audio/mp4"></audio>
+            <audio id="voicePlayer" controls controlsList="nodownload" oncontextmenu="return false;" src="agami.mp4"
+                type="audio/mp4"></audio>
             </audio>
         </div>
 
@@ -72,7 +77,7 @@
             </div>
         </div>
 
-            <div class="contact-box">
+        <div class="contact-box">
             <div class="label">연락처</div>
             <div class="number">02.026.09</div>
             <!-- <div style="font-size:0.85rem; font-weight:bold; margin-top:2px;"> -->

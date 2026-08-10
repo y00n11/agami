@@ -45,7 +45,7 @@ body {
     width: 100%;
     max-width: 430px;
 
-    background-image: url('paper.jpg');
+    background-image: url('paper.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -59,16 +59,6 @@ body {
         inset 0 0 20px rgba(0, 0, 0, 0.05);
 }
 
-/* 모서리 마스킹 테이프 */
-.tape {
-    position: absolute;
-    width: 75px;
-    height: 26px;
-    background: rgba(235, 225, 195, 0.78);
-    border: 1px solid rgba(180, 170, 140, 0.4);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
-    z-index: 10;
-}
 
 .tape-left {
     top: -10px;

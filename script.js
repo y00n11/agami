@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // 2. 트윗 본문 및 링크 준비
             const tweetText = encodeURIComponent(
-                "인어왕자 보신 분? 여기로 제보해주세요\n" +
+                "인어왕자 보신 분? 여기로 연락 달라던데\n" +
                 // "마지막 목격 장소도 참고 ㄱㄱ \n"
                 ">> @heisg0ne \n\n" +
                 ">>26.09.09 개봉 #아가미 #구병모"

@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (action === 'twitter') {
                     window.open('https://x.com', '_blank');
                 } else if (action === 'calendar') {
-                    alert('🗓️ 2026년 9월 9일, 애니메이션 영화 《아가미》 개봉일!');
+                    alert('2026년 9월 9일, 애니메이션 영화 《아가미》 개봉일!');
                 } else if (action === 'share') {
-                    const text = encodeURIComponent('9월 9일 개봉하는 애니메이션 영화 《아가미》 전단지를 뜯어왔습니다! ✂️\n공식 트위터: @인어왕자를찾습니다');
+                    const text = encodeURIComponent('인어왕자 보신 분? 여기로 연락달라네요 \n >> @heisg0ne');
                     window.open(`https://x.com/intent/tweet?text=${text}`, '_blank');
                 } else if (action === 'voice') {
                     const audio = document.getElementById('voicePlayer');

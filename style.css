@@ -1,7 +1,11 @@
-.noto-serif-kr-<uniquifier> {
+/* 1. 구글 폰트(Noto Serif KR) 불러오기 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700;900&display=swap');
+
+/* 2. Noto Serif KR 클래스 정의 */
+.noto-serif-kr {
     font-family: "Noto Serif KR", serif;
     font-optical-sizing: auto;
-    font-weight: <weight>;
+    font-weight: 700;
     font-style: normal;
 }
 
@@ -19,7 +23,6 @@
 
 body {
     background-color: #bebfbe;
-    /* 벽면 분위기 연출 */
     background-image:
         radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.2) 100%),
         repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.03) 2px, rgba(0, 0, 0, 0.03) 4px);
@@ -28,9 +31,14 @@ body {
     align-items: flex-start;
     min-height: 100vh;
     padding: 25px 10px;
-    font-family: 'Nanum Myeongjo', 'Noto Serif KR', serif;
+
+    /* 전체 문서 기본 폰트 적용 */
+    font-family: "Noto Serif KR", serif;
+    font-optical-sizing: auto;
     color: var(--text-main);
 }
+
+/* 이하 기존 style.css 코드 그대로 유지 */
 
 /* 전단지 본체 (업로드한 구겨진 종이 paper.jpg 적용) */
 .flyer-container {

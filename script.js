@@ -6,9 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
             this.classList.add('torn');
 
             setTimeout(() => {
-                // @heisg0ne 포함 트윗 공유 문구
-                const text = encodeURIComponent('인어왕자 보신 분? 여기로 연락달라네요 \n >> @heisg0ne\n >>26.09.09 개봉 #아가미 #구병모');
-                window.open(`https://x.com/intent/tweet?text=${text}`, '_blank');
+                // @ 기호를 %40으로 직접 지정하여 인코딩 누락 방지
+                const shareText = "인어왕자 보신 분? 여기로 연락달라네요 \n >> %40heisg0ne\n >>26.09.09 개봉 #아가미 #구병모";
+                const encodedText = encodeURIComponent(shareText).replace(/%2540/g, '%40');
+                
+                window.open(`https://x.com/intent/tweet?text=${encodedText}`, '_blank');
             }, 250);
         });
     });

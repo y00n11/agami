@@ -6,16 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
             this.classList.add('torn');
 
             setTimeout(() => {
-                // 줄바꿈과 @ 기호를 포함한 순수 문자열 배열
-                const lines = [
-                    '인어왕자 보신 분? 여기로 연락달라네요',
-                    ' >> @heisg0ne',
-                    ' >>26.09.09 개봉 #아가미 #구병모'
-                ];
-                
-                // 줄바꿈 문자(\n)로 합친 뒤 PC/모바일 호환 인코딩
-                const fullText = lines.join('\n');
-                const tweetUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(fullText)}`;
+                // 본문 텍스트 (줄바꿈 포함)
+                const tweetText = encodeURIComponent("인어왕자 보신 분? 여기로 연락달라네요 \n >>26.09.09 개봉 #아가미 #구병모");
+                // 아이디는 via 파라미터로 따로 전달 (@ 제외하고 아이디만 입력)
+                const viaAccount = "heisg0ne";
+
+                // PC/모바일 모두 완벽 호환되는 X Intent URL
+                const tweetUrl = `https://x.com/intent/tweet?text=${tweetText}&via=${viaAccount}`;
                 
                 window.open(tweetUrl, '_blank');
             }, 250);

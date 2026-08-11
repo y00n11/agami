@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ">> @heisg0ne님에게 제보 \n\n" +
                 ">>26.09.09 개봉 #아가미 #구병모"
             );
-            const shareUrl = encodeURIComponent("https://bit.ly/4whSti2?v=1");
+            const shareUrl = encodeURIComponent("https://bit.ly/4whSti2?v=2");
 
             // 3. 팝업 차단을 피하기 위해 setTimeout 없이 클릭 직후 즉시 이동
             window.open(`https://x.com/intent/tweet?text=${tweetText}&url=${shareUrl}`, '_blank');
